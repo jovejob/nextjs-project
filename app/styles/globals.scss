@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Color Variables */
+:root {
+  --dark-gray: #2E2E2E;
+  --green: #5DC266;
+  --light-green: #EEF3E7;
+  --background: #F0F2EC;
+}
+
+/* Apply Background & Font */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--dark-gray);
+}

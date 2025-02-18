@@ -1,0 +1,47 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 14px 22px;
+  border-radius: 50px; /* ✅ Match Figma rounded button */
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+
+  /* ✅ Default (Green Button) */
+  background: #5DC266;
+  color: white;
+
+  &:hover {
+    background: #4aa357;
+    transform: translateY(-2px);
+  }
+
+  /* ✅ Secondary Button (White Background, Green Border) */
+  &.secondary {
+    background: white;
+    color: #5DC266;
+    border: 2px solid #5DC266;
+
+    &:hover {
+      background: #EEF3E7;
+    }
+  }
+
+  /* ✅ Mobile Adjustments */
+  @media (max-width: 768px) {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
+
+.arrow {
+  transition: transform 0.3s ease-in-out;
+}
+
+.button:hover .arrow {
+  transform: translateX(5px);
+}
