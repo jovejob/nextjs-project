@@ -1,0 +1,92 @@
+.card {
+  background: #2E2E2E; /* ✅ Grey Background */
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 718px; /* ✅ Matches Figma */
+  height: 700px;
+  // padding: 24px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+
+  // &:hover {
+  //   transform: translateY(-5px);
+  //   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  // }
+}
+
+/* ✅ Image with label tag */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 362px;
+  overflow: hidden;
+  // border-radius: 12px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    // object-fit: cover;
+  }
+}
+
+/* ✅ Label Tag (Yellow Box) */
+.labelTag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #f0c14b;
+  color: #2e2e2e;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* ✅ Title and Description */
+.content {
+  padding: 16px;
+  text-align: left;
+
+    position: absolute;
+    top: 394px;
+    left: 32px;
+    width: 520px;
+    height: 88px;
+}
+
+.textGroup {
+  width: 520px;
+  height: 88px;
+  padding: 32px;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 18px;
+  color: #d1d1d1;
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 1024px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+}

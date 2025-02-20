@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <main
-      className={`bg-background min-h-screen transition-opacity duration-500 ${
+      className={`bg-white min-h-screen transition-opacity duration-500 ${
         loaded ? 'opacity-100' : 'opacity-0'
       }`}
     >

@@ -9,10 +9,24 @@ module.exports = {
       background: '#F0F2EC',
     },
     screens: {
+      // sm: '375px', // Mobile (Figma)
+      // md: '768px', // Tablet breakpoint
+      // lg: '1024px', // Larger tablet screens
+      // xl: '1280px', // Small desktops
+      // '2xl': '1440px', // Full desktop (Figma)
+      /////
+      // xs: '320px', // Smallest mobile (iPhone SE)
+      // sm: '375px', // Mobile (Figma)
+      // md: '768px', // Tablets
+      // lg: '1024px', // Small desktops
+      // xl: '1280px', // Laptops
+      // '2xl': '1440px', // Full desktop (Figma)
+      /////
+      xs: '320px', // Smallest mobile (iPhone SE)
       sm: '375px', // Mobile (Figma)
-      md: '768px', // Tablet breakpoint
-      lg: '1024px', // Larger tablet screens
-      xl: '1280px', // Small desktops
+      md: '768px', // Tablets
+      lg: '1024px', // Small desktops
+      xl: '1280px', // Laptops
       '2xl': '1440px', // Full desktop (Figma)
     },
   },

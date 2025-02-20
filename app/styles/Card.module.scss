@@ -2,33 +2,55 @@
   background: var(--light-green);
   color: var(--dark-gray);
   border-radius: 12px;
-  padding: 20px;
-  max-width: 400px;
+  padding: 24px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
   }
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-    padding: 16px;
-  }
 }
 
+/* ✅ First Card */
+.card-0 {
+  width: 718px;
+  height: 700px;
+}
+
+/* ✅ Second Card */
+.card-1 {
+  // width: 500px;
+  // height: 400px;
+  width: 506px;
+  height: 338px;
+}
+
+/* ✅ Third Card */
+.card-2 {
+  // width: 500px;
+  // height: 280px;
+  width: 506px;
+  height: 338px;
+}
+
+/* ✅ Image Handling */
 .imageContainer {
   position: relative;
   border-radius: 12px;
-  overflow: hidden; // Ensures image stays within rounded corners
+  overflow: hidden;
   img {
     width: 100%;
-    border-radius: 12px;
+    height: auto;
     object-fit: cover;
+    border-radius: 12px;
   }
 }
 
+/* ✅ Label Tag */
 .labelTag {
   position: absolute;
   top: 10px;
@@ -40,107 +62,19 @@
   border-radius: 4px;
 }
 
-.cardContent {
-  margin-top: 15px;
-}
-
-.subtext {
-  font-size: 14px;
-  color: #5e5e5e;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #5dc266;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    background: #4aa357;
+/* ✅ Mobile/Tablet Adjustments */
+@media (max-width: 1024px) {
+  .card {
+    width: 100%;
+    height: auto;
   }
 }
 
-.arrow {
-  transition: transform 0.3s ease-in-out;
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 16px;
+  }
 }
-
-.button:hover .arrow {
-  transform: translateX(5px);
-}
-
-
-
-
-// .card {
-//   background: var(--light-green);
-//   color: var(--dark-gray);
-//   border-radius: 12px;
-//   padding: 20px;
-//   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-//   max-width: 400px;
-//   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
-//   &:hover {
-//     transform: translateY(-5px);
-//     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-//   }
-// }
-
-// .imageContainer {
-//   position: relative;
-//   img {
-//     width: 100%;
-//     border-radius: 12px;
-//   }
-// }
-
-// .labelTag {
-//   position: absolute;
-//   top: 10px;
-//   left: 10px;
-//   background: #f0c14b;
-//   color: #2e2e2e;
-//   padding: 5px 10px;
-//   font-weight: bold;
-//   border-radius: 4px;
-// }
-
-// .cardContent {
-//   margin-top: 15px;
-// }
-
-// .subtext {
-//   font-size: 14px;
-//   color: #5e5e5e;
-// }
-
-// .button {
-//   display: inline-flex;
-//   align-items: center;
-//   gap: 8px;
-//   background: #5dc266;
-//   color: white;
-//   padding: 10px 16px;
-//   border-radius: 8px;
-//   font-weight: bold;
-//   text-decoration: none;
-//   transition: all 0.3s ease-in-out;
-
-//   &:hover {
-//     background: #4aa357;
-//   }
-// }
-
-// .arrow {
-//   transition: transform 0.3s ease-in-out;
-// }
-
-// .button:hover .arrow {
-//   transform: translateX(5px);
-// }
