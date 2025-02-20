@@ -1,61 +1,46 @@
 .button {
-  display: inline-flex;
+  font-family: 'Inter', sans-serif;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-  // border: 2px solid transparent;
-
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 16px;
-  letter-spacing: 0%;
-  text-align: center;
-
-  /* ✅ Default (Green Button) */
-  background: #5DC266;
+  background: var(--green);
   color: #2E2E2E;
-  width: 189px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  border-radius: 50px;
+  width: 146px; /* ✅ Initial width */
   height: 40px;
+  border: none;
+  cursor: pointer;
+  transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
-  position: absolute;
-    top: 628px;
-    left: 32px;
+  position: relative;
+  overflow: hidden;
+}
 
-  &:hover {
-    background: #4aa357;
-    transform: translateY(-2px);
-  }
-
-  /* ✅ Secondary Button (White Background, Green Border) */
-  &.secondary {
-    background: white;
-    color: #5DC266;
-    border: 2px solid #5DC266;
-
-    &:hover {
-      background: #EEF3E7;
-    }
-  }
-
-  /* ✅ Mobile Adjustments */
-  @media (max-width: 768px) {
-    padding: 12px 18px;
-    font-size: 14px;
-    position: static;
-  }
+.textWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: gap 0.3s ease-in-out;
 }
 
 .arrow {
-  transition: transform 0.3s ease-in-out;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  margin-left: -16px; /* ✅ Initially hidden */
+  transition: opacity 0.3s ease-in-out, margin-left 0.3s ease-in-out;
+}
+
+.button:hover {
+  width: 189px; /* ✅ Expands smoothly */
+  background: #4aa357;
 }
 
 .button:hover .arrow {
-  transform: translateX(5px);
+  opacity: 1;
+  margin-left: 8px; /* ✅ Moves into place */
 }

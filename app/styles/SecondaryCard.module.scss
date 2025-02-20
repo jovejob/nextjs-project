@@ -1,0 +1,44 @@
+.secondaryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ✅ Align text correctly */
+  background: var(--green);
+  border-radius: 6px;
+  width: 327px; 
+  height: 256px; 
+  padding: 24px; /* ✅ Ensures inner content aligns properly */
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px; /* ✅ Keeps spacing consistent */
+
+  h3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #ffffff; /* ✅ Ensure white text on green */
+    margin: 0;
+    padding: 0;
+    max-width: 279px;
+    max-height: 140px;
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #ffffff; /* ✅ Ensures contrast */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ✅ Align button correctly */
+  .linkButton {
+    align-self: flex-start;
+  }
+}

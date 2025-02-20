@@ -1,80 +1,91 @@
 .card {
-  background: var(--light-green);
-  color: var(--dark-gray);
+  width: 100%;
+  max-width: 327px; /* ✅ Matches Figma for Mobile */
+  background: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* ✅ First Card */
-.card-0 {
-  width: 718px;
-  height: 700px;
-}
-
-/* ✅ Second Card */
-.card-1 {
-  // width: 500px;
-  // height: 400px;
-  width: 506px;
-  height: 338px;
-}
-
-/* ✅ Third Card */
-.card-2 {
-  // width: 500px;
-  // height: 280px;
-  width: 506px;
-  height: 338px;
-}
-
-/* ✅ Image Handling */
-.imageContainer {
+  gap: 12px;
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
+
   img {
     width: 100%;
-    height: auto;
+    height: 180px; /* ✅ Maintain consistent height */
+    border-radius: 12px 12px 0 0;
     object-fit: cover;
-    border-radius: 12px;
   }
-}
 
-/* ✅ Label Tag */
-.labelTag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #f0c14b;
-  color: #2e2e2e;
-  padding: 5px 10px;
-  font-weight: bold;
-  border-radius: 4px;
-}
-
-/* ✅ Mobile/Tablet Adjustments */
-@media (max-width: 1024px) {
-  .card {
-    width: 100%;
-    height: auto;
+  .label-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ffcc00;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
   }
-}
 
-@media (max-width: 768px) {
-  .card {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+  .card-content {
     padding: 16px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 8px;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 16px;
+
+    &:hover {
+      background: #388e3c;
+    }
+  }
+}
+
+/* ✅ Mobile-First Grid (Centering & Padding Fix) */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* ✅ Single-column for Mobile */
+  gap: 16px; /* ✅ Adds spacing between cards */
+  padding: 24px; /* ✅ Match Figma left & right padding */
+  max-width: 375px; /* ✅ Keep within the mobile screen width */
+  margin: 0 auto; /* ✅ Center content */
+}
+
+/* ✅ Tablet & Desktop Adjustments */
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1024px;
   }
 }

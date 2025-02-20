@@ -1,41 +1,25 @@
+'use client';
+
 import React from 'react';
 import styles from '@styles/Button.module.scss';
 
 interface ButtonProps {
   text: string;
-  link: string;
-  variant?: 'primary' | 'secondary';
 }
 
-const Button: React.FC<ButtonProps> = ({ text, link, variant = 'primary' }) => {
+const Button: React.FC<ButtonProps> = ({ text }) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // ✅ Prevents navigation
+  };
+
   return (
-    <a
-      href={link}
-      className={`${styles.button} ${
-        variant === 'secondary' ? styles.secondary : ''
-      }`}
-    >
-      {text} <span className={styles.arrow}>→</span>
-    </a>
+    <button className={styles.button} onClick={handleClick}>
+      <span className={styles.textWrapper}>
+        {text}
+        <img src="/Verde.svg" alt="Arrow" className={styles.arrow} />
+      </span>
+    </button>
   );
 };
 
 export default Button;
-
-// import React from 'react';
-// import styles from '@styles/Button.module.scss';
-
-// interface ButtonProps {
-//   text: string;
-//   link: string;
-// }
-
-// const Button: React.FC<ButtonProps> = ({ text, link }) => {
-//   return (
-//     <a href={link} className={styles.button}>
-//       {text} <span className={styles.arrow}>→</span>
-//     </a>
-//   );
-// };
-
-// export default Button;

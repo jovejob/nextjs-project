@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +9,8 @@
   --dark-gray: #2E2E2E;
   --green: #5DC266;
   --light-green: #EEF3E7;
-  --background: #F0F2EC;
+  --light-gray: #F0F2EC;
+  --background: white;
 }
 
 /* Apply Background & Font */
@@ -15,4 +18,20 @@ body {
   font-family: Arial, sans-serif;
   background: var(--background);
   color: var(--dark-gray);
+}
+
+/* Global card spacing */
+.primaryCard,
+.secondaryCard,
+.tertiaryCard {
+  margin-bottom: 24px; /* ✅ Ensures even spacing */
+}
+
+/* Adjust spacing for smaller screens */
+@media (max-width: 768px) {
+  .primaryCard,
+  .secondaryCard,
+  .tertiaryCard {
+    margin-bottom: 16px; /* ✅ Slightly smaller spacing for mobile */
+  }
 }
