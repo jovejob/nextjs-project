@@ -120,6 +120,12 @@
   
 }
 
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .primaryCard {
+    margin-bottom: 24px;
+  }
+}
 
 
 // .primaryCard {

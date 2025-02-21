@@ -1,4 +1,4 @@
-/* ✅ Shared base styles for SecondaryCard & TertiaryCard */
+/* Shared base styles for SecondaryCard & TertiaryCard */
 .cardBase {
   display: flex;
   flex-direction: column;
@@ -8,10 +8,10 @@
   max-width: 327px;
   height: auto;
   padding: 24px;
-  margin: 0 auto 24px; /* ✅ Ensures proper spacing */
+  margin: 0 auto 24px;
 }
 
-/* ✅ Shared content styles */
+/* Shared content styles */
 .content {
   width: 100%;
   display: flex;
@@ -38,13 +38,13 @@
     padding: 0;
   }
 
-  /* ✅ Align button correctly */
+  /* Align button correctly */
   .linkButton {
     align-self: flex-start;
   }
 }
 
-/* ✅ Mobile adjustments */
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .cardBase {
     margin-bottom: 16px;

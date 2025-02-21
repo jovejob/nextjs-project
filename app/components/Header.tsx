@@ -1,17 +1,12 @@
-'use client';
-
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import React from 'react';
 import styles from '@styles/Header.module.scss';
 
-const Header = () => {
-  const { username } = useSelector((state: RootState) => state.user);
+interface HeaderProps {
+  username: string;
+}
 
-  return (
-    <header className="flex justify-between items-center text-white">
-      <h1 className={styles.welcome}>Welcome, {username || 'Guest'} !</h1>
-    </header>
-  );
+const Header: React.FC<HeaderProps> = ({ username }) => {
+  return <h1 className={styles.header}>Welcome {username} !</h1>;
 };
 
 export default Header;

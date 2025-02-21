@@ -1,3 +1,4 @@
+
 .tertiaryCard {
   display: flex;
   flex-direction: column;
@@ -43,7 +44,6 @@
   }
 }
 
-.secondaryCard,
 .tertiaryCard {
   display: flex;
   flex-direction: column;
@@ -58,9 +58,25 @@
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .secondaryCard,
   .tertiaryCard {
     margin-bottom: 16px;
   }
 }
 
+// todo refactor
+// @import 'CardBase.module.scss'; /* Import shared styles */
+
+// .tertiaryCard {
+//   @extend .cardBase; /* Inherit shared styles */
+//   background: var(--light-gray); /*Light gray background */
+// }
+
+// .content {
+//   @extend .content; /* Inherit shared content styles */
+//   h3 {
+//     color: #2E2E2E; /* Black text */
+//   }
+//   p {
+//     color: #2E2E2E; /* Black text */
+//   }
+// }
