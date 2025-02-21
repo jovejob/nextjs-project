@@ -22,15 +22,15 @@ const PrimaryCard: React.FC<PrimaryCardProps> = ({
 }) => {
   return (
     <div className={styles.primaryCard}>
-      {/* ✅ Image & Label */}
+      {/* Image & Label */}
       <div className={styles.imageContainer}>
         {image ? (
           <Image
             src={image}
             alt={title}
-            width={327} // ✅ Set width based on design
-            height={164.87} // ✅ Set height based on design
-            priority // ✅ Ensures it loads faster
+            width={327} // Set width based on design
+            height={164.87} // Set height based on design
+            priority // Ensures it loads faster
             className={styles.cardImage}
           />
         ) : (
@@ -39,12 +39,10 @@ const PrimaryCard: React.FC<PrimaryCardProps> = ({
         {labelTag && <span className={styles.labelTag}>{labelTag}</span>}
       </div>
 
-      {/* ✅ Content */}
       <div className={styles.content}>
         <h3>{title}</h3>
         <p>{description}</p>
 
-        {/* ✅ Button Component */}
         {buttonText && buttonLink && (
           <Button text={buttonText} link={buttonLink} />
         )}

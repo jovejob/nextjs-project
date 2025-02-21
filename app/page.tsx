@@ -1,18 +1,25 @@
 import type { Metadata } from 'next';
 import HomePageClient from '@components/HomePageClient';
 
-/** ✅ Function to fetch JSON-LD data */
-async function getJsonLD() {
-  const response = await fetch(
-    'https://run.mocky.io/v3/61ffeebd-1b8d-4c0e-8703-c8778819e46a'
+/** Fetch Cards Data on the Server */
+async function fetchCards() {
+  const res = await fetch(
+    'https://run.mocky.io/v3/c8927342-2c6f-40d7-9ff4-9eee6c02b691',
+    {
+      cache: 'no-store',
+    }
   );
-  const user = await response.json();
+  const data = await res.json();
+  return data.cards; // ✅ Extract `cards` array
+}
 
+/** ✅ Fetch JSON-LD Data on the Server */
+async function getJsonLD(username: string) {
   return JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: user.username,
-    description: `User profile for ${user.username}`,
+    name: username,
+    description: `User profile for ${username}`,
   });
 }
 
@@ -22,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
     'https://run.mocky.io/v3/61ffeebd-1b8d-4c0e-8703-c8778819e46a'
   ).then((res) => res.json());
 
-  const jsonLd = await getJsonLD(); // ✅ Fetch JSON-LD here
+  const jsonLd = await getJsonLD(user.username); // ✅ Fetch JSON-LD properly
 
   return {
     title: `Welcome ${user.username} - Next.js SPA`,
@@ -33,25 +40,81 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [{ url: 'https://yourdomain.com/preview.jpg' }],
     },
     other: {
-      jsonLd, // ✅ Now properly formatted as a string
+      jsonLd, // ✅ JSON-LD is now properly passed
     },
   };
 }
 
-export default function Page() {
+/** ✅ Fetch JSON-LD Once on the Server */
+export default async function Page() {
+  const metadata = await generateMetadata(); // Fetch metadata once
+  const jsonLd = metadata.other?.jsonLd ?? '{}'; // Extract JSON-LD
+  const cards = await fetchCards(); // Fetch cards here
+
   return (
     <>
-      {/* ✅ Render JSON-LD in <script> tag correctly */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: generateMetadata().then((meta) => meta.other?.jsonLd ?? '{}'),
-        }}
+        dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
-      <HomePageClient />
+      <HomePageClient cards={cards} />
     </>
   );
 }
+
+// import type { Metadata } from 'next';
+// import HomePageClient from '@components/HomePageClient';
+
+// /** Fetch JSON-LD data */
+// async function getJsonLD() {
+//   const response = await fetch(
+//     'https://run.mocky.io/v3/61ffeebd-1b8d-4c0e-8703-c8778819e46a'
+//   );
+//   const user = await response.json();
+
+//   return JSON.stringify({
+//     '@context': 'https://schema.org',
+//     '@type': 'Person',
+//     name: user.username,
+//     description: `User profile for ${user.username}`,
+//   });
+// }
+
+// /** ✅ Dynamic Metadata with JSON-LD */
+// export async function generateMetadata(): Promise<Metadata> {
+//   const user = await fetch(
+//     'https://run.mocky.io/v3/61ffeebd-1b8d-4c0e-8703-c8778819e46a'
+//   ).then((res) => res.json());
+
+//   const jsonLd = await getJsonLD(); // ✅ Fetch JSON-LD here
+
+//   return {
+//     title: `Welcome ${user.username} - Next.js SPA`,
+//     description: `Explore a Next.js single-page app fetching dynamic card data for ${user.username}.`,
+//     openGraph: {
+//       title: `Welcome ${user.username} - Next.js SPA`,
+//       description: `Explore a Next.js single-page app fetching dynamic card data.`,
+//       images: [{ url: 'https://yourdomain.com/preview.jpg' }],
+//     },
+//     other: {
+//       jsonLd,
+//     },
+//   };
+// }
+
+// export default function Page() {
+//   return (
+//     <>
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{
+//           __html: generateMetadata().then((meta) => meta.other?.jsonLd ?? '{}'),
+//         }}
+//       />
+//       <HomePageClient />
+//     </>
+//   );
+// }
 
 // import type { Metadata, ResolvingMetadata } from 'next';
 // import HomePageClient from '@components/HomePageClient';

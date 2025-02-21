@@ -1,65 +1,193 @@
 'use client';
 
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/features/store';
-
 import PrimaryCard from '@components/PrimaryCard';
 import SecondaryCard from '@components/SecondaryCard';
 import TertiaryCard from '@components/TertiaryCard';
 
 import styles from '@styles/Layout.module.scss';
 
-const CardsList: React.FC = () => {
-  const { cards } = useSelector((state: RootState) => state.cards);
+interface Card {
+  id: number;
+  title: string;
+  description: string;
+  image?: string | null;
+  labelTag?: string | null;
+  buttonText?: string;
+  buttonLink?: string;
+}
 
-  /** Show "No cards available" only AFTER HomePage.tsx has finished loading */
-  if (cards.length === 0) {
-    return;
-    // todo Show "No cards available" or skeleton maybe
+interface CardsListProps {
+  cards: Card[];
+}
+
+const CardsList: React.FC<CardsListProps> = ({ cards }) => {
+  if (!cards || cards.length === 0) {
+    return null; // Later: Replace with a Skeleton Loader for better UX
   }
-
-  const image = cards[0]?.image || undefined;
-  const labelTag = image ? cards[0]?.labelTag || undefined : undefined;
 
   return (
     <main className={styles.gridContainer}>
-      <>
-        {cards[0] && (
-          <PrimaryCard
-            title={cards[0].title}
-            description={cards[0].description}
-            image={image}
-            labelTag={labelTag}
-            buttonText={cards[0].buttonText}
-            buttonLink={cards[0].buttonLink}
-          />
-        )}
+      {cards[0] && (
+        <PrimaryCard
+          title={cards[0].title}
+          description={cards[0].description}
+          image={cards[0].image || undefined}
+          labelTag={cards[0].image ? cards[0].labelTag ?? undefined : undefined}
+          buttonText={cards[0].buttonText}
+          buttonLink={cards[0].buttonLink}
+        />
+      )}
 
-        {cards[1] && (
-          <SecondaryCard
-            title={cards[1].title}
-            description={cards[1].description}
-            buttonText={cards[1].buttonText}
-            buttonLink={cards[1].buttonLink}
-          />
-        )}
+      {cards[1] && (
+        <SecondaryCard
+          title={cards[1].title}
+          description={cards[1].description}
+          buttonText={cards[1].buttonText}
+          buttonLink={cards[1].buttonLink}
+        />
+      )}
 
-        {cards.slice(2).map((card, index) => (
-          <TertiaryCard
-            key={card.id || index}
-            title={card.title}
-            description={card.description}
-            buttonText={card.buttonText}
-            buttonLink={card.buttonLink}
-          />
-        ))}
-      </>
+      {/* ✅ Ensure `cards.slice(2)` is only used if `cards.length > 2` */}
+      {cards.length > 2 &&
+        cards
+          .slice(2)
+          .map((card, index) => (
+            <TertiaryCard
+              key={card?.id || index}
+              title={card?.title}
+              description={card?.description}
+              buttonText={card?.buttonText}
+              buttonLink={card?.buttonLink}
+            />
+          ))}
     </main>
   );
 };
 
 export default CardsList;
+
+// ('use client');
+
+// import React from 'react';
+// import { useSelector } from 'react-redux';
+// import { RootState } from '@/features/store';
+
+// import PrimaryCard from '@components/PrimaryCard';
+// import SecondaryCard from '@components/SecondaryCard';
+// import TertiaryCard from '@components/TertiaryCard';
+
+// import styles from '@styles/Layout.module.scss';
+
+// const CardsList: React.FC = () => {
+//   const { cards, status } = useSelector((state: RootState) => state.cards);
+
+//   // Show nothing (or a Skeleton Loader) while data is loading
+//   if (status === 'loading') {
+//     return null; // Later: Replace with a Skeleton Loader for better UX
+//   }
+
+//   return (
+//     <main className={styles.gridContainer}>
+//       {cards[0] && (
+//         <PrimaryCard
+//           title={cards[0].title}
+//           description={cards[0].description}
+//           image={cards[0].image || undefined}
+//           labelTag={
+//             cards[0].image && cards[0].labelTag ? cards[0].labelTag : undefined
+//           }
+//           buttonText={cards[0].buttonText}
+//           buttonLink={cards[0].buttonLink}
+//         />
+//       )}
+
+//       {cards[1] && (
+//         <SecondaryCard
+//           title={cards[1].title}
+//           description={cards[1].description}
+//           buttonText={cards[1].buttonText}
+//           buttonLink={cards[1].buttonLink}
+//         />
+//       )}
+
+//       {cards.slice(2).map((card, index) => (
+//         <TertiaryCard
+//           key={card.id || index}
+//           title={card.title}
+//           description={card.description}
+//           buttonText={card.buttonText}
+//           buttonLink={card.buttonLink}
+//         />
+//       ))}
+//     </main>
+//   );
+// };
+
+// export default CardsList;
+
+// 'use client';
+
+// import React from 'react';
+// import { useSelector } from 'react-redux';
+// import { RootState } from '@/features/store';
+
+// import PrimaryCard from '@components/PrimaryCard';
+// import SecondaryCard from '@components/SecondaryCard';
+// import TertiaryCard from '@components/TertiaryCard';
+
+// import styles from '@styles/Layout.module.scss';
+
+// const CardsList: React.FC = () => {
+//   const { cards } = useSelector((state: RootState) => state.cards);
+
+//   /** Show "No cards available" only AFTER HomePage.tsx has finished loading */
+//   if (cards.length === 0) {
+//     return;
+//     // todo Show "No cards available" or skeleton maybe
+//   }
+
+//   const image = cards[0]?.image || undefined;
+//   const labelTag = image ? cards[0]?.labelTag || undefined : undefined;
+
+//   return (
+//     <main className={styles.gridContainer}>
+//       <>
+//         {cards[0] && (
+//           <PrimaryCard
+//             title={cards[0].title}
+//             description={cards[0].description}
+//             image={image}
+//             labelTag={labelTag}
+//             buttonText={cards[0].buttonText}
+//             buttonLink={cards[0].buttonLink}
+//           />
+//         )}
+
+//         {cards[1] && (
+//           <SecondaryCard
+//             title={cards[1].title}
+//             description={cards[1].description}
+//             buttonText={cards[1].buttonText}
+//             buttonLink={cards[1].buttonLink}
+//           />
+//         )}
+
+//         {cards.slice(2).map((card, index) => (
+//           <TertiaryCard
+//             key={card.id || index}
+//             title={card.title}
+//             description={card.description}
+//             buttonText={card.buttonText}
+//             buttonLink={card.buttonLink}
+//           />
+//         ))}
+//       </>
+//     </main>
+//   );
+// };
+
+// export default CardsList;
 
 // 'use client';
 
