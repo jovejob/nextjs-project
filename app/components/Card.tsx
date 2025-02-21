@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'; // Import Next.js Image component
 import styles from '@styles/Card.module.scss';
 
 interface CardProps {
@@ -20,18 +21,27 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div className={styles.card}>
-      {/* ✅ Image (if provided) */}
-      {image && <img src={image} alt={title} className={styles.cardImage} />}
+      {/* Render Image only if provided */}
+      {image && (
+        <Image
+          src={image}
+          alt={title}
+          className={styles.cardImage}
+          width={150} // Adjust width based on your design
+          height={150} // Adjust height based on your design
+          layout="responsive" // Ensures responsive sizing
+        />
+      )}
 
-      {/* ✅ Label Tag (if provided) */}
+      {/* Render Label Tag if provided */}
       {labelTag && <span className={styles.labelTag}>{labelTag}</span>}
 
-      {/* ✅ Content */}
+      {/* Card Content */}
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{title}</h3>
         <p className={styles.cardDescription}>{description}</p>
 
-        {/* ✅ Button (if provided) */}
+        {/* Render Button if provided */}
         {buttonText && buttonLink && (
           <a href={buttonLink} className={styles.cardButton}>
             {buttonText}
@@ -43,6 +53,52 @@ const Card: React.FC<CardProps> = ({
 };
 
 export default Card;
+
+// import React from 'react';
+// import styles from '@styles/Card.module.scss';
+
+// interface CardProps {
+//   title?: string;
+//   description?: string;
+//   image?: string;
+//   labelTag?: string;
+//   buttonText?: string;
+//   buttonLink?: string;
+// }
+
+// const Card: React.FC<CardProps> = ({
+//   title = 'Default Title',
+//   description = 'This is a placeholder description.',
+//   image,
+//   labelTag,
+//   buttonText,
+//   buttonLink,
+// }) => {
+//   return (
+//     <div className={styles.card}>
+//       {/* ✅ Image (if provided) */}
+//       {image && <img src={image} alt={title} className={styles.cardImage} />}
+
+//       {/* ✅ Label Tag (if provided) */}
+//       {labelTag && <span className={styles.labelTag}>{labelTag}</span>}
+
+//       {/* ✅ Content */}
+//       <div className={styles.cardContent}>
+//         <h3 className={styles.cardTitle}>{title}</h3>
+//         <p className={styles.cardDescription}>{description}</p>
+
+//         {/* ✅ Button (if provided) */}
+//         {buttonText && buttonLink && (
+//           <a href={buttonLink} className={styles.cardButton}>
+//             {buttonText}
+//           </a>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Card;
 
 // import React from 'react';
 // import '@styles/Card.module.scss';
