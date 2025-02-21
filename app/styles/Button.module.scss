@@ -10,7 +10,7 @@
   font-weight: 400;
   line-height: 16px;
   border-radius: 50px;
-  width: 146px; /* ✅ Initial width */
+  width: 146px;
   height: 40px;
   border: none;
   cursor: pointer;
@@ -31,16 +31,16 @@
   width: 16px;
   height: 16px;
   opacity: 0;
-  margin-left: -16px; /* ✅ Initially hidden */
+  margin-left: -16px; /* Initially hidden */
   transition: opacity 0.3s ease-in-out, margin-left 0.3s ease-in-out;
 }
 
 .button:hover {
-  width: 189px; /* ✅ Expands smoothly */
+  width: 189px; /* Expands smoothly */
   background: var(--green);
 }
 
 .button:hover .arrow {
   opacity: 1;
-  margin-left: 8px; /* ✅ Moves into place */
+  margin-left: 8px; /* Moves into place */
 }

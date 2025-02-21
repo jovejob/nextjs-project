@@ -24,7 +24,7 @@ body {
 .primaryCard,
 .secondaryCard,
 .tertiaryCard {
-  margin-bottom: 24px; /* ✅ Ensures even spacing */
+  margin-bottom: 24px; /* Ensures even spacing */
 }
 
 /* Adjust spacing for smaller screens */
@@ -32,6 +32,6 @@ body {
   .primaryCard,
   .secondaryCard,
   .tertiaryCard {
-    margin-bottom: 16px; /* ✅ Slightly smaller spacing for mobile */
+    margin-bottom: 16px; /* Slightly smaller spacing for mobile */
   }
 }

@@ -19,7 +19,7 @@ interface Card {
 }
 
 interface HomePageClientProps {
-  cards: Card[]; // ✅ Cards are passed from server
+  cards: Card[]; // Cards are passed from server
 }
 
 const HomePageClient: React.FC<HomePageClientProps> = ({ cards }) => {
@@ -33,7 +33,7 @@ const HomePageClient: React.FC<HomePageClientProps> = ({ cards }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsHydrated(true); // ✅ Ensures consistent content before/after hydration
+    setIsHydrated(true); // Ensures consistent content before/after hydration
     dispatch(fetchUser());
   }, [dispatch]);
 

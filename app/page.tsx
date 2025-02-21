@@ -10,10 +10,10 @@ async function fetchCards() {
     }
   );
   const data = await res.json();
-  return data.cards; // ✅ Extract `cards` array
+  return data.cards; // Extract `cards` array
 }
 
-/** ✅ Fetch JSON-LD Data on the Server */
+/* Fetch JSON-LD Data on the Server */
 async function getJsonLD(username: string) {
   return JSON.stringify({
     '@context': 'https://schema.org',
@@ -23,13 +23,13 @@ async function getJsonLD(username: string) {
   });
 }
 
-/** ✅ Dynamic Metadata with JSON-LD */
+/* Dynamic Metadata with JSON-LD */
 export async function generateMetadata(): Promise<Metadata> {
   const user = await fetch(
     'https://run.mocky.io/v3/61ffeebd-1b8d-4c0e-8703-c8778819e46a'
   ).then((res) => res.json());
 
-  const jsonLd = await getJsonLD(user.username); // ✅ Fetch JSON-LD properly
+  const jsonLd = await getJsonLD(user.username); // Fetch JSON-LD properly
 
   return {
     title: `Welcome ${user.username} - Next.js SPA`,
@@ -40,12 +40,12 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [{ url: 'https://yourdomain.com/preview.jpg' }],
     },
     other: {
-      jsonLd, // ✅ JSON-LD is now properly passed
+      jsonLd, // JSON-LD is now properly passed
     },
   };
 }
 
-/** ✅ Fetch JSON-LD Once on the Server */
+/** Fetch JSON-LD Once on the Server */
 export default async function Page() {
   const metadata = await generateMetadata(); // Fetch metadata once
   const jsonLd = metadata.other?.jsonLd ?? '{}'; // Extract JSON-LD

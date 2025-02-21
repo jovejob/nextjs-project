@@ -20,7 +20,7 @@
   flex-grow: 1;
 }
 
-/* ✅ Scoped Heading */
+/* Scoped Heading */
 .heading {
   font-size: 20px;
   font-weight: 400;
@@ -32,7 +32,7 @@
   max-height: 140px;
 }
 
-/* ✅ Scoped Paragraph */
+/* Scoped Paragraph */
 .description {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -43,20 +43,18 @@
   padding: 0;
 }
 
-/* ✅ Ensures button stays at the bottom */
+/* Ensures button stays at the bottom */
 .linkButton {
   align-self: flex-start;
   margin-top: auto;
 }
 
-/* ✅ Mobile adjustments */
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .secondaryCard {
     margin-bottom: 16px;
   }
 }
-
-
 
 // todo refactor
 // @import 'CardBase.module.scss'; /* Import shared styles */

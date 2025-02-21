@@ -1,4 +1,4 @@
-/* ✅ Outer Wrapper to Handle Padding */
+/* Outer Wrapper to Handle Padding */
 .container {
   width: 100%;
   display: flex;
@@ -7,7 +7,7 @@
   padding-right: 96px;
 }
 
-/* ✅ Grid Layout */
+/*  Grid Layout */
 .cardList {
   display: grid;
   gap: 24px;
@@ -27,7 +27,7 @@
   }
 }
 
-/* ✅ FIX for Large Laptops (1280px - 1439px) */
+/* FIX for Large Laptops (1280px - 1439px) */
 @media (min-width: 1280px) and (max-width: 1439px) {
   .container {
     padding-left: 72px;
@@ -39,7 +39,7 @@
   }
 }
 
-/* ✅ FIX for Small Laptops & Tablets (1024px - 1279px) */
+/* FIX for Small Laptops & Tablets (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .container {
     padding-left: 48px;
@@ -65,7 +65,7 @@
   }
 }
 
-/* ✅ FIX for iPhone SE (320px - 374px) */
+/* FIX for iPhone SE (320px - 374px) */
 @media (max-width: 374px) {
   .container {
     padding-left: 16px;
@@ -73,7 +73,7 @@
   }
 }
 
-/* ✅ Card Styles */
+/* Card Styles */
 .largeCard {
   width: 100%;
 }
@@ -81,81 +81,3 @@
 .smallCard {
   width: 100%;
 }
-
-
-
-
-// /* ✅ Outer Wrapper to Handle Padding */
-// .container {
-//   width: 100%;
-//   padding: 0 96px; /* Ensures correct left & right spacing */
-//   display: flex;
-//   justify-content: center;
-// }
-
-// /* ✅ Grid Layout */
-// .cardList {
-//   display: grid;
-//   gap: 24px;
-//   width: 100%;
-//   max-width: 1440px;
-//   grid-template-columns: 1fr; /* Default to single column (Mobile) */
-// }
-
-// /* 🔥 Desktop Layout (1440px+) */
-// @media (min-width: 1440px) {
-//   .cardList {
-//     grid-template-columns: 718px 506px;
-//     grid-template-rows: 700px 338px;
-//   }
-//   .largeCard {
-//     grid-row: span 2;
-//   }
-// }
-
-// /* 💻 Large Laptops (1280px - 1439px) */
-// @media (min-width: 1280px) and (max-width: 1439px) {
-//   .container {
-//     padding: 0 72px; /* Ensures correct spacing */
-//   }
-//   .cardList {
-//     grid-template-columns: 718px 506px;
-//     grid-template-rows: 700px 338px;
-//   }
-// }
-
-// /* 📏 Small Laptops & Tablets (1024px - 1279px) */
-// @media (min-width: 1024px) and (max-width: 1279px) {
-//   .container {
-//     padding: 0 48px;
-//   }
-//   .cardList {
-//     grid-template-columns: 1fr; /* Stacks cards */
-//   }
-// }
-
-// /* 📱 Mobile (375px - 1023px) */
-// @media (max-width: 1023px) {
-//   .container {
-//     padding: 0 24px;
-//   }
-//   .cardList {
-//     grid-template-columns: 1fr; /* Stack cards */
-//   }
-// }
-
-// /* ✅ Fix Padding for iPhone SE (320px - 374px) */
-// @media (max-width: 374px) {
-//   .container {
-//     padding: 0 16px;
-//   }
-// }
-
-// /* ✅ Card Styles */
-// .largeCard {
-//   width: 100%;
-// }
-
-// .smallCard {
-//   width: 100%;
-// }
