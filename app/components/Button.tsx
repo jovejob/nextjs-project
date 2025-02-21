@@ -5,6 +5,7 @@ import styles from '@styles/Button.module.scss';
 
 interface ButtonProps {
   text: string;
+  link: string | null;
 }
 
 const Button: React.FC<ButtonProps> = ({ text }) => {
