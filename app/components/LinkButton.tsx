@@ -23,7 +23,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({
       className={styles.linkButton}
       style={{ backgroundColor: bgColor, color: textColor }}
       onClick={(e) => {
-        if (link === '#') e.preventDefault(); // Prevent navigation if it's just "#"
+        e.preventDefault(); // Prevent navigation if it's just "#"
       }}
     >
       <span className={styles.textWrapper}>

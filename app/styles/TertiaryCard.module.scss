@@ -1,13 +1,14 @@
-
 .tertiaryCard {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* ✅ Align text correctly */
+  align-items: flex-start;
   background: var(--light-gray); /* ✅ Different background */
   border-radius: 6px;
-  width: 327px;
+  width: 100%;
+  max-width: 327px;
   height: 256px;
-  padding: 24px; /* ✅ Ensures inner content aligns properly */
+  padding: 16px;
+  margin: 0 auto 24px; /* ✅ Ensures proper spacing */
 }
 
 .content {
@@ -15,53 +16,111 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px; /* ✅ Keeps spacing consistent */
-
-  h3 {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    color: #2E2E2E; /* ✅ Black text */
-    margin: 0;
-    padding: 0;
-    max-width: 279px;
-    max-height: 140px;
-  }
-
-  p {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #2E2E2E; /* ✅ Black text */
-    margin: 0;
-    padding: 0;
-  }
-
-  /* ✅ Align button correctly */
-  .linkButton {
-    align-self: flex-start;
-  }
+  gap: 16px;
+  flex-grow: 1; /* ✅ Makes sure content takes full height */
 }
 
-.tertiaryCard {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border-radius: 6px;
-  width: 100%;
-  max-width: 327px;
-  height: auto;
-  padding: 24px;
-  margin: 0 auto 24px; /* ✅ Ensures proper spacing */
+/* ✅ Scoped Heading */
+.heading {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #2E2E2E;
+  margin: 0;
+  padding: 0;
+  max-width: 279px;
+  max-height: 140px;
 }
 
-/* Mobile adjustments */
+/* ✅ Scoped Paragraph */
+.description {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #2E2E2E;
+  margin: 0;
+  padding: 0;
+}
+
+/* ✅ Ensures button stays at bottom */
+.linkButton {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* ✅ Mobile adjustments */
 @media (max-width: 768px) {
   .tertiaryCard {
     margin-bottom: 16px;
   }
 }
+
+
+
+// .tertiaryCard {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start; /* ✅ Align text correctly */
+//   background: var(--light-gray); /* ✅ Different background */
+//   border-radius: 6px;
+//   width: 327px;
+//   height: 256px;
+//   padding: 24px; /* ✅ Ensures inner content aligns properly */
+// }
+
+// .content {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   gap: 16px; /* ✅ Keeps spacing consistent */
+
+//   h3 {
+//     font-size: 20px;
+//     font-weight: 400;
+//     line-height: 28px;
+//     color: #2E2E2E; /* ✅ Black text */
+//     margin: 0;
+//     padding: 0;
+//     max-width: 279px;
+//     max-height: 140px;
+//   }
+
+//   p {
+//     font-family: 'Inter', sans-serif;
+//     font-size: 14px;
+//     font-weight: 400;
+//     line-height: 22px;
+//     color: #2E2E2E; /* ✅ Black text */
+//     margin: 0;
+//     padding: 0;
+//   }
+
+//   /* ✅ Align button correctly */
+//   .linkButton {
+//     align-self: flex-start;
+//   }
+// }
+
+// .tertiaryCard {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   border-radius: 6px;
+//   width: 100%;
+//   max-width: 327px;
+//   height: auto;
+//   padding: 24px;
+//   margin: 0 auto 24px; /* ✅ Ensures proper spacing */
+// }
+
+// /* Mobile adjustments */
+// @media (max-width: 768px) {
+//   .tertiaryCard {
+//     margin-bottom: 16px;
+//   }
+// }
 
 // todo refactor
 // @import 'CardBase.module.scss'; /* Import shared styles */
