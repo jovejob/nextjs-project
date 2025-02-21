@@ -32,7 +32,6 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      {/* todo skeleton for better user expirience */}
       {isLoading ? (
         <h1 className="text-center text-gray-400 text-2xl mt-10">Loading...</h1>
       ) : (
@@ -81,6 +80,7 @@ export default HomePage;
 
 //   return (
 //     <>
+//       {/* todo skeleton for better user expirience */}
 //       {isLoading ? (
 //         <h1 className="text-center text-gray-400 text-2xl mt-10">Loading...</h1>
 //       ) : (
@@ -89,73 +89,6 @@ export default HomePage;
 //           <CardsList />
 //         </>
 //       )}
-//     </>
-//   );
-// };
-
-// export default HomePage;
-
-// 'use client';
-
-// import React, { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { AppDispatch, RootState } from '@/features/store';
-// import { fetchUser } from '@/features/user/userSlice';
-
-// import CardsList from '@components/CardsList';
-// import Header from '@components/Header';
-
-// const HomePage: React.FC = () => {
-//   const dispatch = useDispatch<AppDispatch>();
-//   const { username, status } = useSelector((state: RootState) => state.user);
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(() => {
-//     dispatch(fetchUser());
-//   }, [dispatch]);
-
-//   useEffect(() => {
-//     if (status !== 'loading') {
-//       setIsLoading(false);
-//     }
-//   }, [status]);
-
-//   return (
-//     <>
-//       {isLoading ? (
-//         <h1 className="text-center text-gray-400 text-2xl mt-10">Loading...</h1>
-//       ) : (
-//         <Header username={username || '[Username]'} />
-//       )}
-//       <CardsList />
-//     </>
-//   );
-// };
-
-// export default HomePage;
-
-// 'use client';
-
-// import React, { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { AppDispatch, RootState } from '@/features/store';
-// import { fetchUser } from '@/features/user/userSlice';
-
-// import CardsList from '@components/CardsList';
-// import Header from '@components/Header';
-
-// const HomePage: React.FC = () => {
-//   const dispatch = useDispatch<AppDispatch>();
-//   const { username } = useSelector((state: RootState) => state.user);
-
-//   useEffect(() => {
-//     dispatch(fetchUser());
-//   }, [dispatch]);
-
-//   return (
-//     <>
-//       <Header username={username || '[Username]'} />
-//       <CardsList />
 //     </>
 //   );
 // };

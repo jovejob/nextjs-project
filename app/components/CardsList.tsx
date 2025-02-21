@@ -13,13 +13,14 @@ import styles from '@styles/Layout.module.scss';
 const CardsList: React.FC = () => {
   const { cards } = useSelector((state: RootState) => state.cards);
 
+  /** Show "No cards available" only AFTER HomePage.tsx has finished loading */
   if (cards.length === 0) {
-    // todo separate component/skeleton maybe later on
-    return <p className="text-center mt-20">No cards available</p>;
+    return;
+    // todo Show "No cards available" or skeleton maybe
   }
 
-  const image = cards[0].image || undefined; // Convert null to undefined
-  const labelTag = image ? cards[0].labelTag || undefined : undefined; // Only set labelTag if image exists
+  const image = cards[0]?.image || undefined;
+  const labelTag = image ? cards[0]?.labelTag || undefined : undefined;
 
   return (
     <main className={styles.gridContainer}>
