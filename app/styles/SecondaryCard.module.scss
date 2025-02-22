@@ -20,7 +20,7 @@
   flex-grow: 1;
 }
 
-/* Scoped Heading */
+/* ✅ Fix: Use class names instead of global `h3` and `p` */
 .heading {
   font-size: 20px;
   font-weight: 400;
@@ -32,7 +32,6 @@
   max-height: 140px;
 }
 
-/* Scoped Paragraph */
 .description {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -56,20 +55,86 @@
   }
 }
 
-// todo refactor
-// @import 'CardBase.module.scss'; /* Import shared styles */
+/* ✅ Desktop Fix */
+@media (min-width: 1024px) {
+  .secondaryCard {
+    max-width: 506px;
+    height: 338px;
+  }
+}
 
 // .secondaryCard {
-//   @extend .cardBase; /* Inherit shared styles */
-//   background: var(--green); /* Green background */
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   background: var(--green);
+//   border-radius: 6px;
+//   width: 100%;
+//   max-width: 327px;
+//   height: 256px;
+//   padding: 16px;
+//   margin: 0 auto 24px;
 // }
 
 // .content {
-//   @extend .content; /* Inherit shared content styles */
-//   h3 {
-//     color: #ffffff; /* White text */
-//   }
-//   p {
-//     color: #ffffff; /* White text */
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   gap: 16px;
+//   flex-grow: 1;
+// }
+
+// /* Scoped Heading */
+// .heading {
+//   font-size: 20px;
+//   font-weight: 400;
+//   line-height: 28px;
+//   color: var(--light-gray);
+//   margin: 0;
+//   padding: 0;
+//   max-width: 279px;
+//   max-height: 140px;
+// }
+
+// /* Scoped Paragraph */
+// .description {
+//   font-family: 'Inter', sans-serif;
+//   font-size: 14px;
+//   font-weight: 400;
+//   line-height: 22px;
+//   color: var(--light-gray);
+//   margin: 0;
+//   padding: 0;
+// }
+
+// /* Ensures button stays at the bottom */
+// .linkButton {
+//   align-self: flex-start;
+//   margin-top: auto;
+// }
+
+// /* Mobile adjustments */
+// @media (max-width: 768px) {
+//   .secondaryCard {
+//     margin-bottom: 16px;
 //   }
 // }
+
+// // todo refactor
+// // @import 'CardBase.module.scss'; /* Import shared styles */
+
+// // .secondaryCard {
+// //   @extend .cardBase; /* Inherit shared styles */
+// //   background: var(--green); /* Green background */
+// // }
+
+// // .content {
+// //   @extend .content; /* Inherit shared content styles */
+// //   h3 {
+// //     color: #ffffff; /* White text */
+// //   }
+// //   p {
+// //     color: #ffffff; /* White text */
+// //   }
+// // }

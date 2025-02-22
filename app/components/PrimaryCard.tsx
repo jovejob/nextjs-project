@@ -42,6 +42,8 @@ const PrimaryCard: React.FC<PrimaryCardProps> = ({
       <div className={styles.content}>
         <h3>{title}</h3>
         <p>{description}</p>
+        {/* <h3 className={styles.heading}>{title}</h3>
+        <p className={styles.description}>{description}</p> */}
 
         {buttonText && buttonLink && (
           <Button text={buttonText} link={buttonLink} />

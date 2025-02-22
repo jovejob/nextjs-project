@@ -11,7 +11,6 @@
   position: relative;
 }
 
-
 .imageContainer {
   width: 100%;
   overflow: visible;
@@ -47,7 +46,7 @@
   height: 221px; /* Forces exact height */
   min-height: 221px;
   max-height: 221px;
-  background: #F0F2EC;
+  background: #f0f2ec;
   border-radius: 0px 0px 8px 8px;
   box-sizing: border-box;
   display: flex;
@@ -59,7 +58,7 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 28px;
-    color: #2E2E2E;
+    color: #2e2e2e;
     margin: 0;
     padding: 0;
     width: 263px;
@@ -68,12 +67,12 @@
 
   p {
     font-family: 'Inter', sans-serif;
-    font-size: 14px; 
+    font-size: 14px;
     font-weight: 400;
-    line-height: 22px; 
+    line-height: 22px;
     width: 279px;
-    height: 43.72px; 
-    color: #2E2E2E;
+    height: 43.72px;
+    color: #2e2e2e;
     margin: 0;
     padding: 0;
     letter-spacing: 0.2px;
@@ -93,22 +92,59 @@
     font-weight: 400;
     line-height: 16px;
     border-radius: 8px;
-    width: 117px; 
-    height: 40px; 
+    width: 117px;
+    height: 40px;
     border: none;
     cursor: pointer;
     transition: filter 0.3s ease-in-out;
-  
+
     &:hover {
       filter: brightness(90%); /* Darkens the color slightly */
     }
   }
-  
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .primaryCard {
     margin-bottom: 24px;
+  }
+}
+
+/* Increase image height ONLY on desktop */
+@media (min-width: 1024px) {
+  .primaryCard {
+    max-width: 718px;
+    height: 700px;
+  }
+
+  .imageContainer img {
+    height: 362px; /* ✅ Larger image for desktop */
+  }
+
+  .content {
+    height: 338px;
+    min-height: 338px;
+    max-height: 338px;
+  }
+
+  .description {
+    max-width: 520px;
+    max-height: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    position: absolute;
+    top: 506px;
+  }
+
+  .heading {
+    font-size: 36px;
+    font-weight: 500;
+    color: #2e2e2e;
+    margin: 0;
+    width: 520px;
+    height: 88px;
+    line-height: 44px;
   }
 }

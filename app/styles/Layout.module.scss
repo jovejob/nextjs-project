@@ -1,22 +1,78 @@
+/* Default Mobile Layout: Stack Cards Vertically */
 .gridContainer {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Ensures full centering */
-  gap: 16px; 
-  // width: 327px; 
+  align-items: center;
+  gap: 16px;
   padding: 0 24px;
   margin: 0 auto;
 }
 
-
-/* Tablet Layout: Switch to 2-column grid */
+/* Tablet: Switch to Two Equal Columns */
 @media (min-width: 768px) {
   .gridContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    width: 80%;
-    max-width: 600px;
+    width: 90%;
+    max-width: 900px;
     margin: 0 auto;
   }
 }
+
+/* ✅ Desktop (1024px+): Exact Grid Layout from Figma */
+@media (min-width: 1024px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 718px 506px; /* Match Figma dimensions */
+    grid-template-rows: 338px 338px; /* Primary spans two rows */
+    gap: 16px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .primaryCard {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; /* Spans two rows */
+    height: 700px;
+    max-width: 718px;
+  }
+
+  .secondaryCard {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    height: 338px;
+    max-width: 506px;
+  }
+
+  .tertiaryCard {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    height: 338px;
+    max-width: 506px;
+  }
+}
+
+// .gridContainer {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center; /* Ensures full centering */
+//   gap: 16px;
+//   // width: 327px;
+//   padding: 0 24px;
+//   margin: 0 auto;
+// }
+
+// /* Tablet Layout: Switch to 2-column grid */
+// @media (min-width: 768px) {
+//   .gridContainer {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     gap: 24px;
+//     width: 80%;
+//     max-width: 600px;
+//     margin: 0 auto;
+//   }
+// }

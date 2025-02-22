@@ -5,7 +5,7 @@
   background: var(--light-gray);
   border-radius: 6px;
   width: 100%;
-  max-width: 327px;
+  max-width: 327px; /* Mobile default */
   height: 256px;
   padding: 16px;
   margin: 0 auto 24px;
@@ -17,10 +17,9 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  flex-grow: 1; /* Makes sure content takes full height */
+  flex-grow: 1;
 }
 
-/* Scoped Heading */
 .heading {
   font-size: 20px;
   font-weight: 400;
@@ -32,7 +31,6 @@
   max-height: 140px;
 }
 
-/* Scoped Paragraph */
 .description {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -53,6 +51,14 @@
 @media (max-width: 768px) {
   .tertiaryCard {
     margin-bottom: 16px;
+  }
+}
+
+/* ✅ Desktop Fix */
+@media (min-width: 1024px) {
+  .tertiaryCard {
+    max-width: 506px;
+    height: 338px;
   }
 }
 
