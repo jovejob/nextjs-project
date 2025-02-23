@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,10 +7,10 @@
 
 /* Custom Color Variables */
 :root {
-  --dark-gray: #2E2E2E;
-  --green: #5DC266;
-  --light-green: #EEF3E7;
-  --light-gray: #F0F2EC;
+  --dark-gray: #2e2e2e;
+  --green: #5dc266;
+  --light-green: #eef3e7;
+  --light-gray: #f0f2ec;
   --background: white;
 }
 

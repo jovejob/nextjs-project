@@ -1,11 +1,24 @@
 .header {
   font-family: 'Arial', sans-serif;
-  font-size: 28px; 
-  font-weight: 400; 
-  line-height: 36px; 
-  color: #2E2E2E; 
-  text-align: center; 
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 36px;
+  color: #2e2e2e;
+  text-align: center;
   width: 100%;
-  max-width: 327px; 
-  margin: 58px auto 32px; 
+  max-width: 327px;
+  margin: 58px auto 32px;
+}
+
+/* Desktop adjustments */
+@media (min-width: 1024px) {
+  .header {
+    max-width: 1036px;
+    height: 53px;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 52.8px;
+    text-align: center;
+    margin: 110px auto 60px;
+  }
 }

@@ -77,6 +77,8 @@
     padding: 0;
     letter-spacing: 0.2px;
     word-spacing: 0.5px;
+    position: relative;
+    top: -10px;
   }
 
   .button {
@@ -111,7 +113,7 @@
   }
 }
 
-/* Increase image height ONLY on desktop */
+/* Desktop adjustments */
 @media (min-width: 1024px) {
   .primaryCard {
     max-width: 718px;
@@ -122,10 +124,38 @@
     height: 362px; /* ✅ Larger image for desktop */
   }
 
+  .imageContainer {
+    .labelTag {
+      top: 30px;
+    }
+  }
+
   .content {
     height: 338px;
     min-height: 338px;
     max-height: 338px;
+    padding: 30px;
+
+    h3 {
+      font-size: 36px;
+      font-weight: 500;
+      color: #2e2e2e;
+      margin: 0;
+      width: 520px;
+      height: 88px;
+      line-height: 44px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    p {
+      width: 520px;
+      height: 48px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      position: relative;
+      bottom: 30px;
+    }
   }
 
   .description {
