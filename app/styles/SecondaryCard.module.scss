@@ -20,7 +20,6 @@
   flex-grow: 1;
 }
 
-/* ✅ Fix: Use class names instead of global `h3` and `p` */
 .heading {
   font-size: 20px;
   font-weight: 400;
@@ -29,7 +28,6 @@
   margin: 0;
   padding: 0;
   max-width: 279px;
-  max-height: 140px;
 }
 
 .description {
@@ -42,20 +40,11 @@
   padding: 0;
 }
 
-/* Ensures button stays at the bottom */
 .linkButton {
   align-self: flex-start;
   margin-top: auto;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .secondaryCard {
-    margin-bottom: 16px;
-  }
-}
-
-/* ✅ Desktop Fix */
 @media (min-width: 1024px) {
   .secondaryCard {
     max-width: 506px;
@@ -69,7 +58,6 @@
     font-weight: 500;
     line-height: 36px;
     max-width: 441px;
-    max-height: 180px;
   }
 }
 
@@ -95,7 +83,7 @@
 //   flex-grow: 1;
 // }
 
-// /* Scoped Heading */
+// /* ✅ Fix: Use class names instead of global `h3` and `p` */
 // .heading {
 //   font-size: 20px;
 //   font-weight: 400;
@@ -107,7 +95,6 @@
 //   max-height: 140px;
 // }
 
-// /* Scoped Paragraph */
 // .description {
 //   font-family: 'Inter', sans-serif;
 //   font-size: 14px;
@@ -131,20 +118,20 @@
 //   }
 // }
 
-// // todo refactor
-// // @import 'CardBase.module.scss'; /* Import shared styles */
+// /* ✅ Desktop Fix */
+// @media (min-width: 1024px) {
+//   .secondaryCard {
+//     max-width: 506px;
+//     height: 338px;
+//     padding: 30px;
+//   }
 
-// // .secondaryCard {
-// //   @extend .cardBase; /* Inherit shared styles */
-// //   background: var(--green); /* Green background */
-// // }
-
-// // .content {
-// //   @extend .content; /* Inherit shared content styles */
-// //   h3 {
-// //     color: #ffffff; /* White text */
-// //   }
-// //   p {
-// //     color: #ffffff; /* White text */
-// //   }
-// // }
+//   .heading {
+//     font-family: 'Montserrat', sans-serif;
+//     font-size: 28px;
+//     font-weight: 500;
+//     line-height: 36px;
+//     max-width: 441px;
+//     max-height: 180px;
+//   }
+// }
