@@ -21,18 +21,18 @@ body {
   color: var(--dark-gray);
 }
 
-/* Global card spacing */
-.primaryCard,
-.secondaryCard,
-.tertiaryCard {
-  margin-bottom: 24px; /* Ensures even spacing */
-}
+// /* Global card spacing */
+// .primaryCard,
+// .secondaryCard,
+// .tertiaryCard {
+//   margin-bottom: 24px; /* Ensures even spacing */
+// }
 
-/* Adjust spacing for smaller screens */
-@media (max-width: 768px) {
-  .primaryCard,
-  .secondaryCard,
-  .tertiaryCard {
-    margin-bottom: 16px; /* Slightly smaller spacing for mobile */
-  }
-}
+// /* Adjust spacing for smaller screens */
+// @media (max-width: 768px) {
+//   .primaryCard,
+//   .secondaryCard,
+//   .tertiaryCard {
+//     margin-bottom: 16px; /* Slightly smaller spacing for mobile */
+//   }
+// }

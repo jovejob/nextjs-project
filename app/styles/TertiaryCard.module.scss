@@ -28,21 +28,7 @@
   margin: 0;
   padding: 0;
   max-width: 279px;
-}
-
-.description {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 22px;
-  color: #2e2e2e;
-  margin: 0;
-  padding: 0;
-}
-
-.linkButton {
-  align-self: flex-start;
-  margin-top: auto;
+  max-height: 140px;
 }
 
 @media (min-width: 1024px) {
@@ -51,15 +37,70 @@
     height: 338px;
     padding: 30px;
   }
-
-  .heading {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 36px;
-    max-width: 441px;
-  }
 }
+
+// .tertiaryCard {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   background: var(--light-gray);
+//   border-radius: 6px;
+//   width: 100%;
+//   max-width: 327px;
+//   height: 256px;
+//   padding: 16px;
+//   margin: 0 auto 24px;
+// }
+
+// .content {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   gap: 16px;
+//   flex-grow: 1;
+// }
+
+// .heading {
+//   font-size: 20px;
+//   font-weight: 400;
+//   line-height: 28px;
+//   color: #2e2e2e;
+//   margin: 0;
+//   padding: 0;
+//   max-width: 279px;
+// }
+
+// .description {
+//   font-family: 'Inter', sans-serif;
+//   font-size: 14px;
+//   font-weight: 400;
+//   line-height: 22px;
+//   color: #2e2e2e;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// .linkButton {
+//   align-self: flex-start;
+//   margin-top: auto;
+// }
+
+// @media (min-width: 1024px) {
+//   .tertiaryCard {
+//     max-width: 506px;
+//     height: 338px;
+//     padding: 30px;
+//   }
+
+//   .heading {
+//     font-family: 'Montserrat', sans-serif;
+//     font-size: 28px;
+//     font-weight: 500;
+//     line-height: 36px;
+//     max-width: 441px;
+//   }
+// }
 
 // .tertiaryCard {
 //   display: flex;

@@ -10,61 +10,141 @@
   display: grid;
   gap: 24px;
   width: 100%;
-  max-width: 1248px;
+  // max-width: 1248px;
   grid-template-columns: 1fr;
   justify-content: center;
 }
 
-/* Desktop */
+/* ✅ Desktop (1440px+) - One row, correct structure */
 @media (min-width: 1440px) {
   .gridContainer {
-    grid-template-columns: 718px 506px;
-    grid-template-rows: 700px 338px;
+    display: grid;
+    grid-template-columns: 718px 506px; /* ✅ Two columns */
+    // grid-template-rows: 700px; /* ✅ One row */
     justify-content: center;
   }
 
   .largeCard {
-    grid-row: span 2; /* Makes PrimaryCard span two rows */
+    grid-row: 1 / span 1; /* ✅ Occupies first column */
   }
 
-  .smallCard:nth-child(2) {
-    grid-column: 2; /* Keeps SecondaryCard in the right column */
-  }
-
-  .smallCard:nth-child(3) {
-    grid-column: 2; /* Forces TertiaryCard below SecondaryCard */
-    grid-row: 2;
+  .smallCards {
+    display: flex;
+    flex-direction: column;
+    // gap: 12px; /* ✅ Ensures spacing between second and third cards */
   }
 }
 
-/* Tablet & Smaller Desktop */
-@media (min-width: 1024px) and (max-width: 1279px) {
+/* ✅ Laptops & Tablets (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
   .container {
     padding-left: 48px;
     padding-right: 48px;
   }
 
   .gridContainer {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    display: grid;
+    grid-template-columns: 718px 506px;
+    // grid-template-rows: 700px;
     justify-content: center;
   }
 
-  .smallCard:nth-child(3) {
-    grid-column: span 2;
+  .largeCard {
+    grid-row: 1 / span 1;
+  }
+
+  .smallCards {
+    display: flex;
+    flex-direction: column;
+    // gap: 12px
   }
 }
 
-/* Mobile */
+/* ✅ Mobile (375px - 1023px) - Stacked layout */
 @media (max-width: 1023px) {
   .container {
     padding-left: 24px;
     padding-right: 24px;
   }
+
   .gridContainer {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 }
+
+// fixed
+
+// .container {
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   padding-left: 96px;
+//   padding-right: 96px;
+// }
+
+// .gridContainer {
+//   display: grid;
+//   gap: 24px;
+//   width: 100%;
+//   max-width: 1248px;
+//   grid-template-columns: 1fr;
+//   justify-content: center;
+// }
+
+// /* Desktop */
+// @media (min-width: 1440px) {
+//   .gridContainer {
+//     grid-template-columns: 718px 506px;
+//     grid-template-rows: 700px 338px;
+//     justify-content: center;
+//   }
+
+//   .largeCard {
+//     grid-row: span 2; /* Makes PrimaryCard span two rows */
+//   }
+
+//   .smallCard:nth-child(2) {
+//     grid-column: 2; /* Keeps SecondaryCard in the right column */
+//   }
+
+//   .smallCard:nth-child(3) {
+//     grid-column: 2; /* Forces TertiaryCard below SecondaryCard */
+//     grid-row: 2;
+//   }
+// }
+
+// /* Tablet & Smaller Desktop */
+// @media (min-width: 1024px) and (max-width: 1279px) {
+//   .container {
+//     padding-left: 48px;
+//     padding-right: 48px;
+//   }
+
+//   .gridContainer {
+//     grid-template-columns: 1fr 1fr;
+//     grid-template-rows: auto;
+//     justify-content: center;
+//   }
+
+//   .smallCard:nth-child(3) {
+//     grid-column: span 2;
+//   }
+// }
+
+// /* Mobile */
+// @media (max-width: 1023px) {
+//   .container {
+//     padding-left: 24px;
+//     padding-right: 24px;
+//   }
+//   .gridContainer {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// // first way
 
 // /* Outer Wrapper to Handle Padding */
 // .container {

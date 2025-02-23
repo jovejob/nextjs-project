@@ -12,7 +12,7 @@
   display: grid;
   gap: 24px;
   width: 100%;
-  max-width: 1248px; /* Ensures proper alignment */
+  // max-width: 1248px; /* Ensures proper alignment */
   grid-template-columns: 1fr; /* Mobile default: Single column */
 }
 
