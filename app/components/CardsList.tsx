@@ -3,7 +3,7 @@ import PrimaryCard from '@components/PrimaryCard';
 import SecondaryCard from '@components/SecondaryCard';
 import TertiaryCard from '@components/TertiaryCard';
 
-import styles from '@styles/Layout.module.scss';
+import styles from '@styles/CardsList.module.scss';
 
 interface Card {
   id: number;
