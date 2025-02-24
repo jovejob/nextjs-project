@@ -22,8 +22,23 @@ const PrimaryCard: React.FC<PrimaryCardProps> = ({
 }) => {
   return (
     <div className={styles.primaryCard}>
+      {/* Image & Label - Display only if an image exists */}
+      {image && (
+        <div className={styles.imageContainer}>
+          <Image
+            src={image}
+            alt={title}
+            width={327} // Set width based on design
+            height={164.87} // Set height based on design
+            priority // Ensures it loads faster
+            className={styles.cardImage}
+          />
+          {/* ✅ Only show labelTag if image exists */}
+          {labelTag && <span className={styles.labelTag}>{labelTag}</span>}
+        </div>
+      )}
       {/* Image & Label */}
-      <div className={styles.imageContainer}>
+      {/* <div className={styles.imageContainer}>
         {image ? (
           <Image
             src={image}
@@ -37,7 +52,7 @@ const PrimaryCard: React.FC<PrimaryCardProps> = ({
           <div className={styles.placeholderImage}>Image Not Available</div>
         )}
         {labelTag && <span className={styles.labelTag}>{labelTag}</span>}
-      </div>
+      </div> */}
 
       <div className={styles.content}>
         <h3>{title}</h3>

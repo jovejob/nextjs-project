@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/features/store';
 import { fetchUser } from '@/features/user/userSlice';
+import { setCards } from '@/features/cards/cardsSlice'; // ✅ Add this
 
 import CardsList from '@components/CardsList';
 import Header from '@components/Header';
@@ -19,96 +20,40 @@ interface Card {
 }
 
 interface HomePageClientProps {
-  cards: Card[]; // Cards are passed from server
+  username: string;
+  cards: Card[]; // Accept cards as a prop from SSR
 }
 
-const HomePageClient: React.FC<HomePageClientProps> = ({ cards }) => {
+const HomePageClient: React.FC<HomePageClientProps> = ({ username, cards }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { username, status: userStatus } = useSelector(
-    (state: RootState) => state.user
-  );
 
-  // Prevent Hydration Mismatch: Ensure UI matches before & after hydration
+  const reduxCards = useSelector((state: RootState) => state.cards.cards);
+  const userStatus = useSelector((state: RootState) => state.user.status);
   const [isHydrated, setIsHydrated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsHydrated(true); // Ensures consistent content before/after hydration
+    setIsHydrated(true);
     dispatch(fetchUser());
-  }, [dispatch]);
 
-  useEffect(() => {
-    if (userStatus !== 'loading') {
-      setIsLoading(false);
+    // Hydrate Redux with fetched cards (only once)
+    if (reduxCards.length === 0 && cards.length > 0) {
+      dispatch(setCards(cards));
     }
-  }, [userStatus]);
+  }, [dispatch, cards, reduxCards.length]);
 
-  // Prevent UI from changing before/after hydration
-  if (!isHydrated) {
+  if (!isHydrated)
     return <div style={{ visibility: 'hidden', height: '100vh' }} />;
-  }
 
   return (
     <>
-      {isLoading ? (
+      <Header username={username} />
+      {userStatus === 'loading' ? (
         <h1 className="text-center text-gray-400 text-2xl mt-10">Loading...</h1>
       ) : (
-        <>
-          <Header username={username || '[Username]'} />
-          <CardsList cards={cards} />
-        </>
+        <CardsList cards={reduxCards} />
       )}
     </>
   );
 };
 
 export default HomePageClient;
-
-// 'use client';
-
-// import React, { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { AppDispatch, RootState } from '@/features/store';
-// import { fetchUser } from '@/features/user/userSlice';
-// import { fetchCards } from '@/features/cards/cardsSlice';
-
-// import CardsList from '@components/CardsList';
-// import Header from '@components/Header';
-
-// const HomePageClient: React.FC = () => {
-//   const dispatch = useDispatch<AppDispatch>();
-//   const { username, status: userStatus } = useSelector(
-//     (state: RootState) => state.user
-//   );
-//   const { status: cardsStatus } = useSelector(
-//     (state: RootState) => state.cards
-//   );
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(() => {
-//     dispatch(fetchUser());
-//     dispatch(fetchCards());
-//   }, [dispatch]);
-
-//   useEffect(() => {
-//     if (userStatus !== 'loading' && cardsStatus !== 'loading') {
-//       setIsLoading(false);
-//     }
-//   }, [userStatus, cardsStatus]);
-
-//   return (
-//     <>
-//       {/* Later: Replace with a Skeleton Loader for better UX */}
-//       {isLoading ? (
-//         <h1 className="text-center text-gray-400 text-2xl mt-10">Loading...</h1>
-//       ) : (
-//         <>
-//           <Header username={username || '[Username]'} />
-//           <CardsList />
-//         </>
-//       )}
-//     </>
-//   );
-// };
-
-// export default HomePageClient;
